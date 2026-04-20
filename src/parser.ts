@@ -44,6 +44,7 @@ export enum FormatPartKind {
   Percent,
   Literal,
   Dot,
+  TextPlaceholder, // @
 }
 
 export type FormatPart = {
@@ -136,6 +137,11 @@ export class Parser {
               '#': FormatPartKind.Digit,
               '?': FormatPartKind.SpaceDigit,
             }[tk.char],
+          })
+          break
+        case 'TextPlaceholder':
+          section.parts.push({
+            kind: FormatPartKind.TextPlaceholder,
           })
           break
       }
