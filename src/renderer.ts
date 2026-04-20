@@ -189,7 +189,9 @@ function formatTextSection(text: string, section: FormatSection): string {
       case FormatPartKind.Literal:
         result += part.char
         break
-      // case FormatPartKind.
+      case FormatPartKind.TextPlaceholder:
+        result += text
+        break
     }
   }
   return result

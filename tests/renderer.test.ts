@@ -96,6 +96,10 @@ describe('condition', () => {
     expect(render('hello', '0;0;0;"text section"')).toEqual({
       text: 'text section',
     })
+    // Text placeholder should inject text value
+    expect(render('hello', '0;0;0;"Text: "@')).toEqual({
+      text: 'Text: hello',
+    })
     // Non selection matched, should fallback to general format
     expect(render('x', '[>100]0;"text!"')).toEqual({
       text: 'x',
